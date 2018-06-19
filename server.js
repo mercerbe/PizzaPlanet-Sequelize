@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 //static route
-app.use(express.static(process.cwd() + '/public'));
+app.use(express.static('public'));
 
 //body parser
 app.use(bodyParser.json());
@@ -19,7 +19,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 //routes
-const router = require('./controllers/pizza_controllers.js');
+const router = require('./controllers/pizza_controller.js');
 app.use('/', router);
 
 

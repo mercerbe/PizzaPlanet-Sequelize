@@ -1,0 +1,15 @@
+<!-- list of pizzas where devoured == false -->
+<div class="row">
+    <div class="col-md-6">
+        <h5>Pizzas Available:</h5>
+        {{#each pizza}} {{#unless this.devoured}}
+        <form action="/pizza/devour/{{id}}" method="POST">
+            <div class="input-group">
+                <li class="form-control">{{ id }} {{pizza_name}}</li>
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="submit" id="devour">Devour</button>
+                </span>
+            </div>
+        </form>
+        {{/unless}} {{/each}}
+    </div>
