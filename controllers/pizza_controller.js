@@ -21,6 +21,7 @@ router.get('/index', (req, res) => {
   models.Pizza.findAll({})
     .then((data) => {
       let hbObj = { Pizza: data };
+      console.log("all pizzas", hbObj);
       res.render('index', hbObj);
     })
 })

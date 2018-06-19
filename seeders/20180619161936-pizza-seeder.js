@@ -12,7 +12,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-      return queryInterface.bulkInsert('pizza', [
+      return queryInterface.bulkInsert('pizzas', [
         {pizza_name: "cheese", devoured: false, createdAt: new Date(), updatedAt: new Date()},
         {pizza_name: "pepperoni", devoured: false, createdAt: new Date(), updatedAt: new Date()},
         {pizza_name: "veggie", devoured: false, createdAt: new Date(), updatedAt: new Date()},
@@ -30,6 +30,6 @@ module.exports = {
       return queryInterface.bulkDelete('Person', null, {});
       truncate: true resets primary key
     */
-      return queryInterface.bulkDelete('pizza', null, {truncate:true})
+      return queryInterface.bulkDelete('pizzas', null, {truncate:true})
   }
 };
