@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.get('/index', (req, res) => {
   models.Pizza.findAll({})
     .then((data) => {
-      hbObj = { Pizza: data };
+      let hbObj = { Pizza: data };
       res.render('index', hbObj);
     })
 })

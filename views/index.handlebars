@@ -1,15 +1,51 @@
 <!-- list of pizzas where devoured == false -->
-<div class="row">
-    <div class="col-md-6">
-        <h5>Pizzas Available:</h5>
-        {{#each pizza}} {{#unless this.devoured}}
-        <form action="/pizza/devour/{{id}}" method="POST">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <h5>Pizzas Available:</h5>
+      {{#each Pizza}}
+        {{#unless this.devoured}}
+          <form action="/pizza/devour/{{id}}" method="POST">
             <div class="input-group">
-                <li class="form-control">{{ id }} {{pizza_name}}</li>
-                <span class="input-group-btn">
+              <li class="form-control">{{ id }} {{pizza_name}}</li>
+              <span class="input-group-btn">
                     <button class="btn btn-danger" type="submit" id="devour">Devour</button>
                 </span>
             </div>
-        </form>
-        {{/unless}} {{/each}}
+          </form>
+        {{/unless}}
+      {{/each}}
     </div>
+    <!-- form to type in new pizzas -->
+
+    <div class="col-md-4">
+      <form class="" action="pizza/create" method="POST">
+        <div class="form-group">
+          <label for="new_pizza">Create Your Galactic Pizza:</label><br>
+          <input type="text" name="pizza_name" value="" placeholder="your pizza name">
+          <span class="input-group-btn">
+        <button type="submit" class="btn btn-warning" id="add">Add Pizza</button>
+        </span>
+        </div>
+      </form>
+    </div>
+
+    <!-- devoured pizzas -->
+    <div class="col-md-4">
+      <h5>Pizzas Eaten:</h5>
+      {{#each Pizza}}
+        {{#if devoured}}
+
+          <div class="input-group">
+            <li class="form-control">{{ id }} {{pizza_name}}</li>
+            <span class="input-group-btn">
+                    <button class="btn btn-danger" type="submit" id="delete">Delete</button>
+                </span>
+          </div>
+
+        {{/if}}
+      {{/each}}
+    </div>
+
+  </div>
+</div>
