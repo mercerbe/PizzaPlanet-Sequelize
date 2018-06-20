@@ -21,7 +21,6 @@ router.get('/index', (req, res) => {
   models.Pizza.findAll({})
     .then((data) => {
       let hbObj = { Pizza: data };
-      console.log("all pizzas", hbObj);
       res.render('index', hbObj);
     })
 })
@@ -52,6 +51,21 @@ router.post('/pizza/devour/:id', (req, res) => {
           devoured: true
         }
       )
+    })
+      .then(() => {
+        res.redirect('/index');
+      })
+})
+
+//destroy/delete devoured pizza
+router.post('/pizza/delete/:id', (req, res) => {
+  models.Pizza.findOne(
+    {
+      where: {id: req.params.id}
+    }
+  )
+    .then((destroyed) => {
+      destroyed.destroy();
     })
       .then(() => {
         res.redirect('/index');
