@@ -11,7 +11,7 @@ Any user may add a new pizza to the menu. This input also adds the pizza into th
 
 ## Demo
 
-You can demo this web app on heroku at:  [Pizza Planet](https://google.com).
+You can demo this web app on heroku at:  [Pizza Planet](https://thawing-oasis-23847.herokuapp.com/).
 
 ## Installation
 
